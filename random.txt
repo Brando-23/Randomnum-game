@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(boot/imag/rand.avif);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .container{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            display: flex;
+            margin-left: 550px;
+            margin-top: 200px;
+            background-color: aliceblue;
+        }
+        .card-body{
+            justify-content: center;
+            margin-left: 50px;
+
+        }
+        #in{
+            margin-bottom: 10px;
+        }
+        button{
+            margin-left: 50px;
+            margin-top: 10px;
+        }
+        h2{
+            margin-left: 50px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 2px;
+        }
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>RANDOM GUESS</h2>
+            <div class="card-body">
+                <input id="in" placeholder="enter guess number">
+                <input id="out"><br>
+                <button onclick="check()">check</button><br>
+                <h3>RATIO: <span id="sc"></span></h3>
+                <h3>Total Chance: <span id="sco">10</span></h3>
+                <h3>Your score: <span id="sco2"></span></h3>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        var score=document.getElementById("sco");
+         var score2=document.getElementById("sco2");
+        var total=10;
+        var gain=0;
+           
+        function check(){
+       
+            var a=document.getElementById("in");
+             var a1=parseInt(a.value);
+            var c=Math.random();
+            c=Math.floor(c*10)+1;
+            document.getElementById("out").value=c;
+            if(c==a1){
+                document.getElementById("sc").innerHTML="HIT";
+                gain=gain+1;
+                score2.textContent=gain;
+            }
+            else{
+                document.getElementById("sc").innerHTML="MISS";
+                total=total-1;
+                score.textContent=total;
+            }
+            if(total<=0)
+            {
+                alert("Game over");
+            }
+            
+
+        }
+       
+        
+    </script>
+</body>
+</html>
